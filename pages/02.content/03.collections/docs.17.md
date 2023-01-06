@@ -1,24 +1,24 @@
 ---
-title: Page Collections
+title: Коллекции страниц
 page-toc:
   active: true
 taxonomy:
     category: docs
 ---
 
-In Grav, the most common type of collection is a list of pages that can be defined either in the page's frontmatter or in the twig itself. The most common is to define a collection in the frontmatter. With a collection defined, it is available in the Twig of the page to do with as you wish. By using page collection methods or looping through each [page object](https://learn.getgrav.org/themes/theme-vars#page-object) and using the page methods or properties you can do powerful things. Common examples of this include displaying a list of blog posts or displaying modular sub-pages to render a complex page design.
+В Grav наиболее распространенным типом коллекции является список страниц, который может быть определен либо в заголовке странице (Frontmatter), либо в самом Twig. Чаще всего коллекции определяют в  Frontmatter. После того как коллекция определена, она доступна в Twig страницы, чтобы использовать ее по своему усмотрению. Используя методы коллекции страницы или цикл по каждому [объекту страницы](https://learn.getgrav.org/themes/theme-vars#page-object) и используя свойства и методы страницы, вы можете реализовать мощные вещи. Распространенные примеры включают отображение списка записей в блоге или отображение модульных подстраниц для построение сложного дизайна страницы.
 
-## Collection Object
+## Объект коллекции
 
-When you define a collection in the page header, you are dynamically creating a [Grav Collection](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Page/Collection.php) that is available in the page's Twig.  This Collection object is **iterable** and can be treated like an **array** which allows you to do things such as:
+При определении коллекции в заголовке страницы, вы динамически создаете экземпляр [Grav Collection](https://github.com/getgrav/grav/blob/develop/system/src/Grav/Common/Page/Collection.php), который доступен в Twig страницы.  Этот объект коллекции является **итерабельным** и может быть обработан как  **массив**, который позволяет вам сделать подобное этому:
 
 [prism classes="language-twig line-numbers"]
 {{ dump(page.collection[page.path]) }}
 [/prism]
 
-## Example Collection Definition
+## Пример объявления коллекции
 
-An example collection defined in the page's frontmatter:
+Ниже приведен пример определения коллекции в заголовке страницы (Frontmatter):
 
 [prism classes="language-yaml line-numbers"]
 content:
@@ -30,13 +30,13 @@ content:
     pagination: true
 [/prism]
 
-The `content.items` value in the page's frontmatter tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
+Значение `content.items` говорит Grav собрать коллекцию записей и информацию, переданную с ней, определяющую как будет построена коллекция.
 
-This definition creates a collection for the page that consists of all **child pages** sorted by **date** in **descending** order with **pagination** showing **10 items** per-page.
+Это определение создает коллекцию для страницы, которая состоит из всех **дочерних страниц** отсортированных по **дате** в порядке **убывания** с **пагинацией** по **10 записей** на станице.
 
-## Accessing Collections in Twig
+## Доступ к коллекции в Twig
 
-When this collection is defined in the header, Grav creates a collection **page.collection** that you can access in a twig template with:
+Когда коллекция определена в заголовке, Grav создает коллекцию **page.collection**, к которой вы можете получить доступ в шаблоне Twig с помощью:
 
 [prism classes="language-twig line-numbers"]
 {% for p in page.collection %}
@@ -45,9 +45,9 @@ When this collection is defined in the header, Grav creates a collection **page.
 {% endfor %}
 [/prism]
 
-This simply loops over the [pages](https://learn.getgrav.org/themes/theme-vars#page-object) in the collection displaying the title and summary.
+Этот код просто выполняет цикл по [страницам](https://learn.getgrav.org/themes/theme-vars#page-object) коллекции, отображая заголовок и краткое описание.
 
-You can also include an order parameter to change the default ordering of pages:
+Также вы можете включить параметр сортировки для изменения порядка упорядочивания страниц по умолчанию:
 
 [prism classes="language-twig line-numbers"]
 {% for p in page.collection.order('folder','asc') %}
@@ -56,44 +56,44 @@ You can also include an order parameter to change the default ordering of pages:
 {% endfor %}
 [/prism]
 
-## Collection Headers
+## Заголовки коллекции
 
-To tell Grav that a specific page should be a listing page and contain child-pages, there are a number of variables that can be used:
+Чтобы сообщить Grav, что только указанная страница должна быть списком страниц и содержать дочерние страницы, существует ряд переменных, доступных для использования:
 
-### Summary of collection options
+### Свойства коллекции
 
 [div class="table-keycol"]
-|                   String                      |                           Result                          |
-|-----------------------------------------------|-----------------------------------------------------------|
-| `'@root.pages'`                               | Get the top level pages                                   |
-| `'@root.descendants'`                         | Get all the pages of the site                             |
-| `'@root.all'`                                 | Get all the pages and modules of the site                 |
-|                                               |                                                           |
-| `'@self.page'`                                | Get a collection with only the current page               |
-| `'@self.parent'`                              | Get a collection with only the parent of the current page |
-| `'@self.siblings'`                            | Get siblings of the current page                          |
-| `'@self.children'`                            | Get children of the current page                          |
-| `'@self.modules'`                             | Get modules of the current page                           |
-| `'@self.all'`                                 | Get both children and modules of the current page         |
-| `'@self.descendants'`                         | Recurse through all the children of the current page      |
-|                                               |                                                           |
-| `'@page.page': '/fruit'`                      | Get a collection with only the page `/fruit`              |
-| `'@page.parent': '/fruit'`                    | Get a collection with only the parent of the page `/fruit`|
-| `'@page.siblings': '/fruit'`                  | Get siblings of the page `/fruit`                         |
-| `'@page.children': '/fruit'`                  | Get children of the page `/fruit`                         |
-| `'@page.modules': '/fruit'`                   | Get modules of the page `/fruit`                          |
-| `'@page.all': '/fruit'`                       | Get both children and modules of the page `/fruit`        |
-| `'@page.descendants': '/fruit'`               | Get and recurse through all the children of page `/fruit` |
-|                                               |                                                           |
-| `'@taxonomy.tag': photography`                | taxonomy with tag=`photography`                           |
-| `'@taxonomy': {tag: birds, category: blog}`   | taxonomy with tag=`birds` && category=`blog`              |
-[/div]
+| String                                      | Result                                                       |
+| ------------------------------------------- | ------------------------------------------------------------ |
+| `'@root.pages'`                             | Получает страницы верхнего уровня                            |
+| `'@root.descendants'`                       | Получает все страницы сайта                                  |
+| `'@root.all'`                               | Получает все страницы и модули сайта                         |
+|                                             |                                                              |
+| `'@self.page'`                              | Получает коллекцию только текущей страницы                   |
+| `'@self.parent'`                            | Получает коллекцию только родителя текущей страницы          |
+| `'@self.siblings'`                          | Получает соседние страницы одного уровня с  текущей          |
+| `'@self.children'`                          | Получает дочерние записи текущей страницы                    |
+| `'@self.modules'`                           | Получает модули текущей страницы                             |
+| `'@self.all'`                               | Получает одновременно и дочерние и модульные страницы для текущей |
+| `'@self.descendants'`                       | Рекурсия по всем потомкам текущей страницы                   |
+|                                             |                                                              |
+| `'@page.page': '/fruit'`                    | Получает коллекцию только страницы `/fruit`                  |
+| `'@page.parent': '/fruit'`                  | Получите коллекцию, содержащую только родительский элемент страницы `/fruit` |
+| `'@page.siblings': '/fruit'`                | Получает соседние записи страницы `/fruit`                   |
+| `'@page.children': '/fruit'`                | Получает потомков страницы `/fruit`                          |
+| `'@page.modules': '/fruit'`                 | Получает модули страницы `/fruit`                            |
+| `'@page.all': '/fruit'`                     | Получает и потомков и модули страницы `/fruit`               |
+| `'@page.descendants': '/fruit'`             | Получает рекурсивно всех потомков страницы `/fruit`          |
+|                                             |                                                              |
+| `'@taxonomy.tag': photography`              | таксономия с tag=`photography`                               |
+| `'@taxonomy': {tag: birds, category: blog}` | таксономия с tag=`birds` && category=`blog`                  |
+| [/div]                                      |                                                              |
 
-! This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
+! В этом документе описано использование `@page`, `@taxonomy.category` и т.д., но более безопасным для YAML альтернативным форматом является `page@`, `taxonomy@.category`.  Все `@` команды могут быть записаны как в префиксном, так и в постфиксном формате.
 
-!! Collection options have been improved and changed since **Grav 1.6**. The old versions will still work, but are not recommended to use.
+!! Опции коллекции были улучшены и изменены начиная с **Grav 1.6**. Старые версии все еще будут работать, но использовать их не рекомендуется.
 
-We will cover these more in detail.
+Мы рассмотрим их более подробно.
 
 ## Root Collections
 
@@ -708,7 +708,7 @@ Then, we need to define the method and loop over the collection items, looking f
                 $collection->remove($item->path());
             }
         }
-
+    
     }
 [/prism]
 
