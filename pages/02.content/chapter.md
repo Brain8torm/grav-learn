@@ -1,11 +1,11 @@
 ---
-title: Content
+title: Контент
 taxonomy:
     category: docs
 ---
 
-### Chapter 2
+### Глава 2
 
-# Content
+# Контент
 
-In **Grav**, content is priority **#1**.  Find out how to create and organize your content quickly and intuitively.
+В **Grav** контент имеет приоритет **№1**.  Узнайте, как быстро и интуитивно создавать и упорядочивать свой контент.
