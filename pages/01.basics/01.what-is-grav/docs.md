@@ -1,30 +1,30 @@
 ---
-title: What is Grav?
+title: Что такое Grav?
 taxonomy:
     category: docs
 ---
 
-Grav is a **Fast**, **Simple**, and **Flexible** file-based Web-platform. There is **Zero** installation required.  Just extract the ZIP archive, and you are already up and running.  Although Grav follows principles similar to other flat-file CMS platforms, it has a different design philosophy than most.
+Grav - это **быстрая**, **простая** и  **гибкая** CMS на файлах. Она требует **ноль** действий для установки. Просто распакуйти ZIP-архив, и вы уже в деле. Несмотря на то, что Grav следует принципам, аналогичным другим файловым CMS, у него в отличие от многих другая философия разработки.
 
-The name **Grav** is just a shortened version of the word **Gravity**. The shared namespace of our platform and a movie starring Sandra Bullock is pure coincidence! More importantly, gravity is also a fundamental physical principle that describes the forces of attraction between objects. Frankly, the name was chosen as a temporary "codename" for the project, and it just stuck.
+Название **Grav** - это сокращенная версия от слова **Gravity** (от англ. *гравитация*). Общее пространство имен нашей платформы и фильма с Сандрой Буллок в главной роли - чистое совпадение! Что еще более важно, гравитация также является фундаментальным физическим принципом, описывающим силы притяжения между объектами. Откровенно говоря, название было выбрано как временное "кодовое имя" для проекта, и оно просто прижилось.
 
-The underlying architecture of Grav is built using well established and _best-in-class_ technologies. This is to ensure that Grav is simple to use and easy to extend. Some of these key technologies include:
+Базовая архитектура Grav построена с использованием хорошо зарекомендовавших себя и _лучших в своем классе_ технологий. Это сделано для того, чтобы Grav был прост в использовании и легко расширялся Некоторые из этих ключевых технологий включают в себя:
 
-* [Twig Templating](https://twig.symfony.com/): for powerful control of the user interface
-* [Markdown](https://en.wikipedia.org/wiki/Markdown): for easy content creation
-* [YAML](https://yaml.org): for simple configuration
-* [Parsedown](https://parsedown.org/): for fast Markdown and Markdown Extra support
-* [Doctrine Cache](https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/caching.html): for performance
-* [Pimple Dependency Injection Container](https://github.com/silexphp/Pimple): for extensibility and maintainability
-* [Symfony Event Dispatcher](https://symfony.com/doc/current/components/event_dispatcher.html): for plugin event handling
-* [Symfony Console](https://symfony.com/doc/current/components/console.html): for CLI interface
-* [Gregwar Image Library](https://github.com/Gregwar/Image): for dynamic image manipulation
+* [Шаблонизатор Twig](https://twig.symfony.com/): для мощного управления пользовательским интерфейсом
+* [Markdown](https://en.wikipedia.org/wiki/Markdown): для простого создания контента
+* [YAML](https://yaml.org): для простоты конфигурации
+* [Parsedown](https://parsedown.org/): для поддержки Markdown и Markdown Extra
+* [Doctrine Cache](https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/caching.html): для производительности
+* [Pimple Dependency Injection Container](https://github.com/silexphp/Pimple): для расширяемости и поддержки
+* [Symfony Event Dispatcher](https://symfony.com/doc/current/components/event_dispatcher.html): для обработки событий плагинов
+* [Symfony Console](https://symfony.com/doc/current/components/console.html): для консольного интерфейса
+* [Gregwar Image Library](https://github.com/Gregwar/Image): для динамической обработки изображений
 
-## Grav's Place in the Universe
+## Место Grav во вселенной
 
-There are many powerful open source CMS solutions for building complex websites.  Some of the more commonly used ones are [Joomla](https://www.joomla.org), [WordPress](https://wordpress.org), and [Drupal](https://www.drupal.org). The downside of these platforms is that they have a steep learning curve associated with them. This requires a significant amount of your time - and this may be the time that you do not have.
+Существует множество мощных CMS с открытым исходным кодом для создания сложных сайтов.  Одни из часто используемых - [Joomla](https://www.joomla.org), [WordPress](https://wordpress.org), и [Drupal](https://www.drupal.org). Недостатком этих платформ является сложная кривая обучения. Это требует значительных затрат времени, а это может быть время, которого у вас нет.
 
-These platforms provide a wealth of features and functionality that you can extend with a wide variety of open source and proprietary plug-ins and themes.  These extensions and themes are themselves often feature-packed, requiring more knowledge and time on the part of the developer yet.
+Данные платформы предоставляют множество особенностей и функций, которые вы можете расширить с помощью широкого спектра плагинов и тем, как с открытым исходным кодом, так и проприетарных. Эти расширения и темы сами по себе зачастую снабжены множеством функций, что требует от разработчика больше знаний и времени.
 
 In the end, you often find yourself creating a website that requires many plugins and extensions from many different vendors. This can make your design overly complicated and difficult to maintain over the long term.
 
